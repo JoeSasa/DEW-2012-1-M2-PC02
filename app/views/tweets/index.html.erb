@@ -11,6 +11,7 @@
 <% end %>
 
 <%= form_for(@tweet, :url => "read_text") do |f| %>
+
   <div class="field">
     <%= f.label :status %><br />
     <%= f.text_field :status %>
@@ -20,7 +21,8 @@
   </div>
 <% end %>
 
-<%= form_for(@tweet, :url => "update") do |f| %>
+<%= form_for(@tweet) do |f| %>
+ <% @tweet.message = @tweet.index %>
   <div class="field">
     <%= f.label :message %><br />
     <%= f.text_field :message %>
@@ -30,7 +32,16 @@
   </div>
 <% end %>
 
-
 <br />
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<ul id="container">
+<% @tweets.each do |tweet| %>
+<li>
+<%= tweet.message%>
+</li>
+<% end %>
+</ul>
+
+
+
+

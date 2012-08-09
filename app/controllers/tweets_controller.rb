@@ -3,10 +3,13 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all
-	@tweet = Tweet.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tweets }
+	#@tweet = Tweet.all
+    @tweet = Tweet.new(params[:tweet])
+	respond_to do |format|
+		if @tweet.save
+		  format.html # index.html.erb
+		  format.json { render json: @tweets }
+		end 
     end
   end
 

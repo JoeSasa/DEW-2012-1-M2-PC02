@@ -7,8 +7,9 @@ Twitter.configure do |config|
       config.oauth_token_secret = 'os9BBzpZZNxDgKgOkVmwDrOIabd1735QgGGZ7WFHUo'
 end
 
-  def read_text
-    return "sin status" if self.status.blank?
+  #def read_text
+  def index
+  return "sin status" if self.status.blank?
     Twitter.status(self.status).text
   end
 
